@@ -1,6 +1,7 @@
 $:.unshift(File.join(File.dirname(__FILE__), 'devkit'))
 
 require "version"
+require "highline"
 
 module Devkit
   def self.init!
