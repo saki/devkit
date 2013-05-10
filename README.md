@@ -27,3 +27,6 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Copyright (c) 2008-2013 The Egghead Creative. This software is licensed under the MIT License.
+
