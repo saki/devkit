@@ -8,9 +8,52 @@ args = ARGV
 options = []
 
 opts = OptionParser.new do |opts|
-  opts.banner = "Usage: devkit [options] first_pair_username second_pair_username"
+  opts.banner = "Usage: devkit [options] developer nickname"
   opts.separator ""
+  # specific options
+  opts.separator "Devkit specific options:"
+  
+  # devkit --init
+  opts.on_tail("-i", "--init", "Intializing devkit, creating .developers file.") do
+    puts "init"
+  end
+
+  # devkit --list
+  opts.on_tail("-l", "--list", "Shows list of developers.") do
+    puts "list"
+  end
+
+  # devkit --clean
+  opts.on_tail("-c", "--clean", "Removes all devkit generated files.") do
+    puts "clean"
+  end
+
+  # devkit --remove praaveen
+  opts.on_tail("-r developer_nick_name", "--remove developer_nick_name", String, "Removes developer from .developers file.") do |developer_nick_name|
+    options = [:remove, developer_nick_name]
+    puts developer_nick_name
+  end
+
+  # devkit --switch praaveen
+  opts.on_tail("-s developer_nick_name", "--switch developer_nick_name", String, "Switches the developer.") do |developer_nick_name|
+    options = [:switch, developer_nick_name]
+    puts developer_nick_name
+  end
+  
+   # devkit --add
+  opts.on_tail("-a", "--add", "Adding a new developer to .developers. file.") do
+    puts "add"
+  end  
+  
+  # general options
   opts.separator "General options:"
+  # devkit --help
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+
+  # devkit --version
   opts.on_tail("-v", "--version", "Show version") do
     abort "Devkit v#{Devkit::VERSION}"
   end
