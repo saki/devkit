@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require File.expand_path(File.join(File.dirname(__FILE__), %w[.. lib devkit]))
+
+require 'optparse'
+
+args = ARGV
+
+options = []
+
+opts = OptionParser.new do |opts|
+  opts.banner = "Usage: devkit [options] first_pair_username second_pair_username"
+  opts.separator ""
+  opts.separator "General options:"
+  opts.on_tail("-v", "--version", "Show version") do
+    abort "Devkit v#{Devkit::VERSION}"
+  end
+end
+
+if args.any?
+  opts.parse!(args)
+end
