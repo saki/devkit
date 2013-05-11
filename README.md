@@ -19,6 +19,7 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+Refactor methods out of devkit module
 
 ## Contributing
 
