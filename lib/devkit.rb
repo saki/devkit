@@ -11,10 +11,11 @@ module Devkit
   # Prompt for adding new developers
   def self.init!
     if check_if_developers_file_exists?
-      puts "developer file exists."
+      puts "developer file exists. Willing to clean, then use --clean"
     #Prompt user that the file already exists and if the user really want to start over ask him to user devkit --clean
     else
-      puts "developer file does not exist."
+      puts "developer file does not exist.creating, Want to add more developers? then use devkit --add"
+      File.new(DEVELOPERS_FILE_PATH, "w")
     #Create file
     #Prompt user to add more developers
     end
@@ -60,9 +61,9 @@ module Devkit
 
   def self.check_if_developers_file_exists?
     if File.exists?(DEVELOPERS_FILE_PATH)
-      return true
+    return true
     else
-      return false
+    return false
     end
   end
 end

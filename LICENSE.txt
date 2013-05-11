@@ -1,4 +1,4 @@
-Copyright (c) 2013 Praaveen Ranganathan
+Copyright (c) 2008-2013 The Egghead Creative
 
 MIT License
 
