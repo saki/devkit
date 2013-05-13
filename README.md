@@ -32,4 +32,3 @@ Refactor methods out of devkit module
 ## License
 
 Copyright (c) 2008-2013 The Egghead Creative. This software is licensed under the MIT License.
-
