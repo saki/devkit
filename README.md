@@ -29,5 +29,7 @@ Refactor methods out of devkit module
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## License
+
 Copyright (c) 2008-2013 The Egghead Creative. This software is licensed under the MIT License.
 
