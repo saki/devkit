@@ -1,4 +1,4 @@
-# Devkit
+# Dev Kit
 
 TODO: Write a gem description
 
@@ -28,6 +28,8 @@ Refactor methods out of devkit module
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Licesnse
 
 Copyright (c) 2008-2013 The Egghead Creative. This software is licensed under the MIT License.
 
