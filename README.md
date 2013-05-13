@@ -1,4 +1,4 @@
-# Devkit
+# Dev Kit
 
 TODO: Write a gem description
 
