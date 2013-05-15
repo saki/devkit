@@ -3,6 +3,7 @@ $:.unshift(File.join(File.dirname(__FILE__), 'devkit'))
 require "version"
 require "highline/import"
 require "yaml"
+require "colorize"
 
 module Devkit
   DEVELOPERS_FILE_PATH = File.expand_path('~/.developers')
@@ -110,9 +111,9 @@ module Devkit
         developer["Github Id"] == %x[git config --global github.user].chomp
 
     if check
-      puts "Switch successfull."
+      puts "Git config switch successfull.".green
     else
-      puts "Problem switching to #{developer['Full Name']}."
+      puts "Problem switching to #{developer['Full Name']}.".red
     end
   end
 
@@ -126,7 +127,7 @@ module Devkit
       system("ssh-add #{identity}")
       check_identity(developer)
     else
-      puts "#{developer["Full Name"]}'s ssh keys not found. Skipping identity switch."
+      puts "#{developer["Full Name"]}'s ssh keys not found. Skipping identity switch.".red
     end
   end
 
@@ -139,9 +140,9 @@ module Devkit
     $stdout.flush
 
     if identities.length > 1
-      puts "Problem releasing existing identities. Possible amibiguity."
+      puts "Problem releasing existing identities. Possible amibiguity.".red
     else
-      puts "Successfully switched ssh identity to #{File.expand_path(identity)}"
+      puts "Successfully switched ssh identity to #{File.expand_path(identity)}".green
     end
   end
 end
