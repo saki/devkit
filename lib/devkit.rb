@@ -21,9 +21,6 @@ module Devkit
   end
 
   def self.list
-    puts "******************************************"
-    puts "****** List of Developers ****************"
-    puts "******************************************"
     puts developers.to_yaml
   end
 
