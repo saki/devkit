@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'devkit/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Devkit"
+  spec.name          = "devkit"
   spec.version       = Devkit::VERSION
   spec.authors       = ["Praaveen Ranganathan", "Tripura Konda"]
   spec.email         = ["praaveen@eggheadcreative.com", "tripura@eggheadcreative.com"]
