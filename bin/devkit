@@ -62,7 +62,13 @@ parser = OptionParser.new do |opts|
 end
 
 if args.any?
-  parser.parse!(args)
+  begin
+    parser.parse!(args)
+  rescue OptionParser::MissingArgument
+    puts "Missing an argument?"
+    puts ""
+    puts parser
+  end
 else
   puts parser
 end
