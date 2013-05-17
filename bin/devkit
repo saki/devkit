@@ -7,7 +7,7 @@ args = ARGV
 
 options = []
 
-opts = OptionParser.new do |opts|
+parser = OptionParser.new do |opts|
   opts.banner = 'Usage: devkit [options] developer_nick_name'
   opts.separator ''
 
@@ -62,6 +62,8 @@ opts = OptionParser.new do |opts|
 end
 
 if args.any?
-  opts.parse!(args)
+  parser.parse!(args)
+else
+  puts parser
 end
 
