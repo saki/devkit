@@ -6,10 +6,10 @@ require 'devkit/version'
 Gem::Specification.new do |spec|
   spec.name          = "devkit"
   spec.version       = Devkit::VERSION
-  spec.authors       = ["Praaveen Ranganathan", "Tripura Konda"]
-  spec.email         = ["praaveen@eggheadcreative.com", "tripura@eggheadcreative.com"]
-  spec.description   = %q{Developer kit for switching between git users and switching ssh keys.}
-  spec.summary       = %q{Developer Kit for everyday development.}
+  spec.authors       = ["The Egghead Creative"]
+  spec.email         = ["developers@eggheadcreative.com"]
+  spec.description   = %q{Developer kit for switching between git and ssh identities}
+  spec.summary       = %q{Developer kit for easily managing multiple user identities across machines}
   spec.homepage      = "http://eggheadcreative.com"
   spec.license       = "MIT"
 
