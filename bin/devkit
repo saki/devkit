@@ -29,6 +29,11 @@ parser = OptionParser.new do |opts|
     Devkit::Core.clean!
   end
 
+  # devkit --status
+  opts.on_tail('-t', '--status', 'shows current developers nick name') do
+    Devkit::Core.status
+  end
+
   # devkit --remove praaveen
   opts.on_tail('-r developer_nick_name', '--remove developer_nick_name', String, 'Removes developer from .developers file') do |developer_nick_name|
     options = [:remove, developer_nick_name]
