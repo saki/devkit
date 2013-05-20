@@ -46,7 +46,7 @@ parser = OptionParser.new do |opts|
     Devkit::Developer.add!
   end
 
-   # devkit --add
+   # devkit --drop
   opts.on_tail('-d', '--drop', 'Drop existing identities') do
     Devkit::Developer.drop!
   end
@@ -56,7 +56,8 @@ parser = OptionParser.new do |opts|
 
   # devkit --help
   opts.on_tail('-h', '--help', 'Show this message') do
-    abort opts
+    puts opts
+    exit
   end
 
   # devkit --version
