@@ -56,8 +56,7 @@ parser = OptionParser.new do |opts|
 
   # devkit --help
   opts.on_tail('-h', '--help', 'Show this message') do
-    puts opts
-    exit
+    abort opts
   end
 
   # devkit --version
@@ -69,7 +68,7 @@ end
 if args.any?
   begin
     parser.parse!(args)
-  rescue OptionParser::MissingArgument
+  	rescue OptionParser::MissingArgument
     puts "Missing an argument?"
     puts ""
     puts parser

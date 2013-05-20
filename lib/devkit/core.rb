@@ -5,10 +5,13 @@ module Devkit
   class Core
     DEVELOPERS_FILE_PATH = File.expand_path('~/.developers')
     class << self
+
+
       def init!
         if check_if_developers_file_exists?
           if agree(".developers file already exist.You want to over ride existing file? (y/n)", true)
             clear_existing_developers_file
+            puts "cleared the current user in .developers file"
           else
             puts "No changes made to the existing file."
           end
