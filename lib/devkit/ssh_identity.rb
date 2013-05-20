@@ -31,6 +31,11 @@ module Devkit
         end
       end
 
+      def status
+        identities = %x[ssh-add -l].split("\n")
+        puts identities
+      end
+
       def drop
         system("ssh-add -D")
 
@@ -43,9 +48,6 @@ module Devkit
         end
       end
 
-      def status
-
-      end
     end
   end
 end
