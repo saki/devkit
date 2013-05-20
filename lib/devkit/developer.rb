@@ -4,7 +4,6 @@ require 'colorize'
 module Devkit
   class Developer
     attr_accessor :full_name, :nick_name, :email, :github_id, :ssh_identity
-
     class << self
       def list
         puts Devkit::Core.developers.to_yaml
@@ -21,7 +20,7 @@ module Devkit
           end
         else
           puts "#{developer_nick_name} does not exist in .developers list"
-          #self.list
+        #self.list
         end
       end
 
@@ -40,7 +39,7 @@ module Devkit
         existing_developers = Devkit::Core.developers
         nick = ask("Nick Name: ", String).to_s
 
-        if self.developers[nick]
+        if Devkit::Core.developers[nick]
           puts "Developer already exists"
           list
         else
