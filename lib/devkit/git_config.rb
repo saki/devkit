@@ -5,8 +5,8 @@ module Devkit
     class << self
       def check(developer)
         config = developer["Full Name"] == %x[git config --global user.name].chomp &&
-        developer["Email"] == %x[git config --global user.email].chomp &&
-        developer["Github Id"] == %x[git config --global github.user].chomp
+            developer["Email"] == %x[git config --global user.email].chomp &&
+            developer["Github Id"] == %x[git config --global github.user].chomp
 
         if config
           puts "Git config switch successfull.".green

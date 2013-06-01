@@ -17,18 +17,18 @@ describe Devkit::Core do
   end
 
 
-#@TODO : Test it with a stub DEVELOPERS_FILE_PATH value
-describe do
-  context '.init!' do
-    it 'should create .developers file if does not exist' do
-      File.exists?(File.expand_path('~/.developers')).should be_true
+  #@TODO : Test it with a stub DEVELOPERS_FILE_PATH value
+  describe do
+    context '.init!' do
+      it 'should create .developers file if does not exist' do
+        File.exists?(File.expand_path('~/.developers')).should be_true
+      end
     end
   end
-end
 
   describe '.clean!' do
     it 'should clean existing developers file' do
-        File.size(File.expand_path('~/.developers')).should equal(0)
+      File.size(File.expand_path('~/.developers')).should equal(0)
     end
   end
 

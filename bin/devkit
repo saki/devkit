@@ -46,12 +46,12 @@ parser = OptionParser.new do |opts|
     Devkit::Developer.switch!(developer_nick_name)
   end
 
-   # devkit --add
+  # devkit --add
   opts.on_tail('-a', '--add', 'Adding a new developer to .developers file') do
     Devkit::Developer.add!
   end
 
-   # devkit --drop
+  # devkit --drop
   opts.on_tail('-d', '--drop', 'Drop existing identities') do
     Devkit::Developer.drop!
   end
@@ -74,7 +74,11 @@ end
 if args.any?
   begin
     parser.parse!(args)
-  	rescue OptionParser::MissingArgument
+  rescue OptionParser::MissingArgument
+    puts "Missing an argument?"
+    puts ""
+    puts parser
+  rescue OptionParser::ParseError
     puts "Missing an argument?"
     puts ""
     puts parser

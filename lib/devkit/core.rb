@@ -44,9 +44,9 @@ module Devkit
 
       def check_if_developers_file_exists?
         if File.exists?(DEVELOPERS_FILE_PATH)
-        return true
+          return true
         else
-        return false
+          return false
         end
       end
     end

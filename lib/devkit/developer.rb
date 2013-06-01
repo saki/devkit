@@ -20,7 +20,7 @@ module Devkit
           end
         else
           puts "#{developer_nick_name} does not exist in .developers list"
-        #self.list
+          #self.list
         end
       end
 
