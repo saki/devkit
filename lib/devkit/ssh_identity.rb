@@ -8,7 +8,7 @@ module Devkit
 
         if File.exists?(File.expand_path(identity))
           system("ssh-add -D")
-          system("ssh-add #{identity}")
+          system("ssh-add -t 14400 #{identity}")
         else
           puts "#{developer["Full Name"]}'s ssh keys not found. Skipping identity switch.".red
         end
