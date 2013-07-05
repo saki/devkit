@@ -56,6 +56,10 @@ parser = OptionParser.new do |opts|
     Devkit::Developer.drop!
   end
 
+  opts.on('-e N', '--expire N', Integer, 'Expire pair information in N hours') do |n|
+    options = [:expire, n]
+  end
+
   # general options
   opts.separator 'General options:'
 
@@ -74,6 +78,9 @@ end
 if args.any?
   begin
     parser.parse!(args)
+    if options.delete(:expire)
+      system(Devkit.expire_command(options.pop))
+    end
   rescue OptionParser::MissingArgument
     puts "Missing an argument?"
     puts ""
