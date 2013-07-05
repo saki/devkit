@@ -24,13 +24,13 @@ parser = OptionParser.new do |opts|
     Devkit::Developer.list
   end
 
-  # devkit --clean
-  opts.on_tail('-c', '--clean', 'Removes all devkit generated files') do
-    Devkit::Core.clean!
+  # devkit --purge
+  opts.on_tail('-p', '--purge', 'Removes all devkit generated files') do
+    Devkit::Core.Purge!
   end
 
   # devkit --status
-  opts.on_tail('-t', '--status', 'shows current developers nick name') do
+  opts.on_tail('-s', '--status', 'shows current developers nick name') do
     Devkit::Core.status
   end
 
@@ -40,8 +40,8 @@ parser = OptionParser.new do |opts|
     Devkit::Developer.remove!(developer_nick_name)
   end
 
-  # devkit --switch praaveen
-  opts.on_tail('-s developer_nick_name', '--switch developer_nick_name', String, 'Switches the developer') do |developer_nick_name|
+  # devkit --change praaveen
+  opts.on_tail('-c developer_nick_name', '--change developer_nick_name', String, 'Switches the developer') do |developer_nick_name|
     options = [:switch, developer_nick_name]
     Devkit::Developer.switch!(developer_nick_name)
   end
