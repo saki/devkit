@@ -24,15 +24,22 @@ module Devkit
         end
       end
 
-      def switch!(developer_nick_name)
+      def choose!(developer_nick_name)
         developer = Devkit::Core.developers[developer_nick_name]
-        Devkit::GitConfig.switch(developer)
-        Devkit::SshIdentity.switch(developer)
+        Devkit::GitConfig.choose(developer)
+        Devkit::SshIdentity.choose(developer)
+        expire_in(developer['Expires In'])
       end
 
       def drop!
         Devkit::GitConfig.drop
         Devkit::SshIdentity.drop
+      end
+
+      def expire_in(time)
+        time ||= Devkit::EXPIRY_TIME
+        puts "Setting the identity to expire in #{time} seconds"
+        %w(sleep #{time} && #{Devkit.bin_path} --drop &)
       end
 
       def add!
@@ -49,6 +56,7 @@ module Devkit
           new_developer[nick]["Email"] = ask("Email: ", String).to_s
           new_developer[nick]["Github Id"] = ask("Github Id: ", String).to_s
           new_developer[nick]["SSH Identity"] = ask("SSH Identity: ", String).to_s
+          new_developer[nick]["Expires In"] = EXPIRY_TIME
 
           Devkit::Core.clear_existing_developers_file
 
