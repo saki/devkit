@@ -1,22 +1,19 @@
 module Devkit
   module SshIdentity
     class << self
-      def switch(developer)
+      def choose(developer)
         identity = File.join("~/.ssh/", developer['SSH Identity'])
         print "Switching ssh identity to #{File.expand_path(identity)}, "
         $stdout.flush
 
         if File.exists?(File.expand_path(identity))
           system("ssh-add -D")
+          system("ssh-add #{identity}")
         else
           puts "#{developer["Full Name"]}'s ssh keys not found. Skipping identity switch.".red
         end
 
         check(developer)
-      end
-
-      def expire_command(time)
-        %Q(sleep #{to_seconds(time)} && #{Devkit.bin_path} --drop&)
       end
 
       def check(developer)
