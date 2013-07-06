@@ -19,7 +19,7 @@ module Devkit
         end
       end
 
-      def Purge!
+      def purge!
         if check_if_developers_file_exists? && agree("Are you sure you want to clear existing developers file? (y/n)", true)
           clear_existing_developers_file
         end
