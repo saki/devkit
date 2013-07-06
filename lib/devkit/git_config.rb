@@ -20,7 +20,7 @@ module Devkit
         print username
       end
 
-      def switch(developer)
+      def choose(developer)
         print "Switching git config to #{developer['Full Name']}, ".blue
         $stdout.flush
         system("git config --global user.name '#{developer['Full Name']}'")
