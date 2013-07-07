@@ -8,11 +8,11 @@ describe Devkit::Core do
 
   context 'developers config file' do
     it 'developers config file path should be set' do
-      Devkit::Core::DEVELOPERS_FILE_PATH.should_not be_nil
+      Devkit::Core::DEVKIT_FILE_PATH.should_not be_nil
     end
 
     it 'developers config file should be .developers' do
-      Devkit::Core::DEVELOPERS_FILE_PATH.should == File.expand_path('~/.developers')
+      Devkit::Core::DEVKIT_FILE_PATH.should == File.expand_path('~/.developers')
     end
   end
 

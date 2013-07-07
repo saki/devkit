@@ -3,47 +3,46 @@ require "highline/import"
 
 module Devkit
   class Core
-    DEVELOPERS_FILE_PATH = File.expand_path('~/.developers')
     class << self
       def init!
-        if check_if_developers_file_exists?
-          if agree(".developers file already exist.You want to over ride existing file? (y/n)", true)
-            clear_existing_developers_file
-            puts "cleared the current user in .developers file"
+        if check_if_devkit_file_exists?
+          if agree(".devkit file already exist.You want to over ride existing file? (y/n)", true)
+            clear_existing_devkit_file
+            puts "Cleared existing identities in .devkit file"
           else
             puts "No changes made to the existing file."
           end
         else
-          puts "Creating .developers file in your home directory. Try devkit --add for adding more developers."
-          File.new(DEVELOPERS_FILE_PATH, "w")
+          puts "Creating .devkit file in your home directory. Try devkit --add for adding more identities to devkit."
+          File.new(DEVKIT_FILE_PATH, "w")
         end
       end
 
       def purge!
-        if check_if_developers_file_exists? && agree("Are you sure you want to clear existing developers file? (y/n)", true)
-          clear_existing_developers_file
+        if check_if_devkit_file_exists? && agree("Are you sure you want to clear existing devkit file? (y/n)", true)
+          clear_existing_devkit_file
         end
       end
 
       def status
-        Devkit::GitConfig::status
+        Devkit::GitIdentity::status
         Devkit::SshIdentity::status
       end
 
-      def clear_existing_developers_file
-        File.truncate(DEVELOPERS_FILE_PATH, 0)
+      def clear_existing_devkit_file
+        File.truncate(DEVKIT_FILE_PATH, 0)
       end
 
-      def developers
-        if check_if_developers_file_exists?
-          YAML.load_file(DEVELOPERS_FILE_PATH) || {}
+      def identities
+        if check_if_devkit_file_exists?
+          YAML.load_file(DEVKIT_FILE_PATH) || {}
         else
           {}
         end
       end
 
-      def check_if_developers_file_exists?
-        if File.exists?(DEVELOPERS_FILE_PATH)
+      def check_if_devkit_file_exists?
+        if File.exists?(DEVKIT_FILE_PATH)
           return true
         else
           return false

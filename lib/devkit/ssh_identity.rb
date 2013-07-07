@@ -1,47 +1,47 @@
 module Devkit
   module SshIdentity
     class << self
-      def choose(developer)
-        identity = File.join("~/.ssh/", developer['SSH Identity'])
-        print "Switching ssh identity to #{File.expand_path(identity)}, "
+      def choose(identity)
+        ssh_identity = File.join("~/.ssh/", identity['SSH Identity'])
+        print "Switching ssh identity to #{File.expand_path(ssh_identity)}, "
         $stdout.flush
 
-        if File.exists?(File.expand_path(identity))
+        if File.exists?(File.expand_path(ssh_identity))
           system("ssh-add -D")
-          system("ssh-add #{identity}")
+          system("ssh-add #{ssh_identity}")
         else
-          puts "#{developer["Full Name"]}'s ssh keys not found. Skipping identity switch.".red
+          puts "#{identity["Full Name"]}'s ssh keys not found. Skipping identity switch.".red
         end
 
-        check(developer)
+        check(identity)
       end
 
-      def check(developer)
-        identity = File.join("~/.ssh/", developer['SSH Identity'])
-        identities = %x[ssh-add -l].split("\n")
+      def check(identity)
+        ssh_identity = File.join("~/.ssh/", identity['SSH Identity'])
+        ssh_identities = %x[ssh-add -l].split("\n")
 
         print "Checking identity, ".blue
 
         $stdout.flush
 
-        if identities.length > 1
+        if ssh_identities.length > 1
           puts "Possible amibiguity. Please double check your identity".red
         else
-          puts "Using ssh identity #{File.expand_path(identity)}".green
+          puts "Using ssh identity #{File.expand_path(ssh_identity)}".green
         end
       end
 
       def status
-        identities = %x[ssh-add -l].split("\n")
-        puts identities
+        ssh_identities = %x[ssh-add -l].split("\n")
+        puts ssh_identities
       end
 
       def drop
         system("ssh-add -D")
 
-        identities = %x[ssh-add -l].split("\n")
+        ssh_identities = %x[ssh-add -l].split("\n")
 
-        if identities.length > 1
+        if ssh_identities.length > 1
           puts "Problem releasing existing identities. Possible amibiguity.".red
         else
           puts "Successfully dropped all the identities".green
