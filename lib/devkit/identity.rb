@@ -16,7 +16,7 @@ module Devkit
         if identity && agree("Are you sure you want to delete #{identity['Full Name']} (y/n)?", true)
           new_identities = existing_identities.reject { |dev| dev == nick_name }
           Devkit::Core.clear_existing_devkit_file
-          File.open(Devkit::Core::DEVKIT_FILE_PATH, 'a+') do |f|
+          File.open(Devkit::DEVKIT_FILE_PATH, 'a+') do |f|
             f.write(new_identities.to_yaml)
           end
         else
@@ -66,7 +66,7 @@ module Devkit
 
           Devkit::Core.clear_existing_devkit_file
 
-          File.open(Devkit::Core::DEVKIT_FILE_PATH, 'a+') do |f|
+          File.open(Devkit::DEVKIT_FILE_PATH, 'a+') do |f|
             f.write(existing_identities.merge(new_identity).to_yaml)
           end
 

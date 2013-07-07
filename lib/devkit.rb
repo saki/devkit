@@ -7,7 +7,7 @@ require 'devkit/ssh_identity'
 require 'devkit/version'
 
 module Devkit
-  EXPIRY_TIME = 60
+  EXPIRY_TIME = 14400
   DEVKIT_FILE_PATH = File.expand_path('~/.devkit')
 
   class << self
