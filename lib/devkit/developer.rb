@@ -38,8 +38,9 @@ module Devkit
 
       def expire_in(time)
         time ||= Devkit::EXPIRY_TIME
+        command = "sleep #{time} && #{Devkit.bin_path} --drop&"
         puts "Setting the identity to expire in #{time} seconds"
-        %w(sleep #{time} && #{Devkit.bin_path} --drop &)
+        system(command)
       end
 
       def add!
