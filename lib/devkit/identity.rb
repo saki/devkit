@@ -30,6 +30,7 @@ module Devkit
         if identity
           Devkit::GitIdentity.choose(identity)
           Devkit::SshIdentity.choose(identity)
+          Devkit::HerokuIdentity.login
           expire_in(identity['Expires In'])
         else
           puts "#{nick_name} does not exist. Please try devkit --list to double check."
@@ -38,6 +39,7 @@ module Devkit
 
       def drop!
         Devkit::GitIdentity.drop
+        Devkit::HerokuIdentity.drop
         Devkit::SshIdentity.drop
       end
 

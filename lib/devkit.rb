@@ -3,6 +3,7 @@ $:.unshift(File.join(File.dirname(__FILE__)))
 require 'devkit/core'
 require 'devkit/identity'
 require 'devkit/git_identity'
+require 'devkit/heroku_identity'
 require 'devkit/ssh_identity'
 require 'devkit/version'
 

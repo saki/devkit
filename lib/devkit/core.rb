@@ -26,6 +26,7 @@ module Devkit
 
       def status
         Devkit::GitIdentity::status
+        Devkit::HerokuIdentity::status
         Devkit::SshIdentity::status
       end
 
