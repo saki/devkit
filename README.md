@@ -3,7 +3,7 @@ Devkit is a Command Line tool to easily manage SSH Identities and Github Identit
 
 ## Installation
 
-If you are using bundler to manager you gems you can add dependency to your Gemfile otherwise install directly using gem install.
+If you are using bundler to manage your gems, add dependency to your Gemfile.
 
 ```
 $ gem install devkit
