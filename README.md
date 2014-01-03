@@ -1,34 +1,39 @@
-# Dev Kit
-
-TODO: Write a gem description
+### DevKit
+Devkit is a Command Line tool to easily manage SSH Identities and Github Identitites. It provides an easy way to manage your whole team credentials along with a way to add/remove developers, show status of current developer and switch between developer identities. 
 
 ## Installation
 
-Add this line to your application's Gemfile:
+If you are using bundler to manager you gems you can add dependency to your Gemfile otherwise install directly using gem install.
 
-    gem 'devkit'
+```
+$ gem install devkit
+```
 
-And then execute:
+### Usage
 
-    $ bundle
+```
+Usage: devkit [options] nick_name
 
-Or install it yourself as:
+Devkit specific options:
+General options:
+    -i, --init                       Intializing devkit, creating .devkit file
+    -l, --list                       Shows list of identities
+    -p, --purge                      Removes all devkit generated files
+    -s, --status                     Shows current identity
+    -r, --remove nick_name           Removes identity from .devkit file
+    -c, --choose nick_name           Switches the identity
+    -a, --add                        Adding a new identity to .devkit file
+    -d, --drop                       Drop existing identities
+    -h, --help                       Show this message
+    -v, --version                    Show version
+```
 
-    $ gem install devkit
+### Credits
 
-## Usage
+### Maintainers
 
-TODO: Write usage instructions here
-Refactor methods out of devkit module
+[Srinivas Aki](http://github.com/saki), The Egghead Creative
 
-## Contributing
+### License
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-## License
-
-Copyright (c) 2008-2013 The Egghead Creative. This software is licensed under the MIT License.
+Copyright (c) 2013-2016 The Egghead Creative. This software is licensed under the MIT License.
