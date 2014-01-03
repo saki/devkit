@@ -1,7 +1,7 @@
 ### DevKit
 Devkit is a Command Line tool to easily manage SSH Identities and Github Identitites. It provides an easy way to manage your whole team credentials along with a way to add/remove developers, show status of current developer and switch between developer identities. 
 
-## Installation
+### Installation
 
 If you are using bundler to manage your gems, add dependency to your Gemfile.
 
